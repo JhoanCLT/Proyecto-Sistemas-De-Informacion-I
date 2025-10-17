@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mockup Admin - Gaming Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../STYLES/admin.css" />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-gamepad"></i> <span>Gaming Store</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#"
+            ><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-box"></i> <span>Pedidos</span></a>
+        </li>
+        <li>
+          <a href="#" class="active"
+            ><i class="fas fa-cogs"></i> <span>Productos</span></a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-users"></i> <span>Clientes</span></a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-file-alt"></i> <span>Contenido</span></a>
+        </li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <header class="header">
+        <h1>Gestión de Productos</h1>
+        <button class="add-btn">
+          <i class="fas fa-plus"></i> Añadir Producto
+        </button>
+      </header>
+      <div class="table-container">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>SKU</th>
+              <th>Stock</th>
+              <th>Precio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Imagen">
+                <img
+                  src="https://images.unsplash.com/photo-1629429408209-1f912961dbd8?auto=format&fit=crop&w=50"
+                  alt="Keyboard"
+                />
+              </td>
+              <td data-label="Nombre">Teclado Mecánico RGB</td>
+              <td data-label="SKU">K70RGB</td>
+              <td data-label="Stock">150</td>
+              <td data-label="Precio">$129.99</td>
+              <td data-label="Acciones">
+                <button class="action-btn edit" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete" title="Eliminar">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Imagen">
+                <img
+                  src="https://images.unsplash.com/photo-1563297007-168985627192?auto=format&fit=crop&w=50"
+                  alt="Mouse"
+                />
+              </td>
+              <td data-label="Nombre">Ratón Gamer Pro</td>
+              <td data-label="SKU">G502</td>
+              <td data-label="Stock">85</td>
+              <td data-label="Precio">$79.99</td>
+              <td data-label="Acciones">
+                <button class="action-btn edit" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete" title="Eliminar">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

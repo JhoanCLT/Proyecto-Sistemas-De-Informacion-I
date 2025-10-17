@@ -1,0 +1,114 @@
+/* --- Variables y Estilos Base --- */
+:root {
+  --bg-dark: #12121f;
+  --bg-card: #1a1a2e;
+  --text-light: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --green: #28a745;
+  --blue: #007bff;
+  --purple: #6f42c1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+/* --- Cuadrícula de KPIs --- */
+.kpi-grid {
+  display: grid;
+  /* El grid ya es responsivo por defecto gracias a auto-fit y minmax */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.kpi-card .icon {
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.icon.green {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: var(--green);
+}
+.icon.blue {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: var(--blue);
+}
+.icon.purple {
+  background-color: rgba(111, 66, 193, 0.2);
+  color: var(--purple);
+}
+
+.kpi-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.kpi-card .label {
+  color: var(--text-muted);
+}
+
+/* --- Cuadrícula de Gráficos --- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Dos columnas, la primera el doble de ancha */
+  gap: 1.5rem;
+}
+
+.chart-card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.chart-card h3 {
+  margin-bottom: 1rem;
+}
+
+.chart-card img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover; /* Asegura que la imagen se vea bien */
+}
+
+/* --- ✨ DISEÑO RESPONSIVO ✨ --- */
+/* Para pantallas con un ancho máximo de 768px (tablets y móviles) */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem; /* Menos espacio en los bordes */
+  }
+
+  h1 {
+    font-size: 1.75rem; /* Título un poco más pequeño */
+  }
+
+  .charts-grid {
+    /* Cambiamos el grid a una sola columna */
+    grid-template-columns: 1fr;
+  }
+}

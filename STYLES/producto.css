@@ -1,0 +1,123 @@
+/* --- Variables de Color y Estilos Base --- */
+:root {
+  --bg-dark: #12121f;
+  --bg-card: #1a1a2e;
+  --primary: #8a2be2; /* Violeta Neón */
+  --secondary: #00bfff; /* Azul Neón */
+  --text-light: #e0e0e0;
+  --text-muted: #a0a0a0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* --- Estilos del Contenedor Principal --- */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  gap: 2rem;
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 1000px;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+}
+
+/* --- Galería de Producto --- */
+.product-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+/* --- Información del Producto --- */
+.product-info h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.stock {
+  background-color: rgba(0, 191, 255, 0.1);
+  color: var(--secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Botón de Llamada a la Acción (CTA) --- */
+.cta-button {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4);
+}
+
+/* --- ✨ DISEÑO RESPONSIVO ✨ --- */
+/* Para pantallas con un ancho máximo de 768px (tablets y móviles) */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem; /* Menos padding en el cuerpo para pantallas pequeñas */
+  }
+
+  .container {
+    /* Cambiamos a una sola columna */
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .product-info h1 {
+    font-size: 2rem; /* Reducimos el tamaño del título */
+  }
+
+  .price {
+    font-size: 1.75rem;
+  }
+}

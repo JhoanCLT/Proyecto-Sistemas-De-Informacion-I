@@ -1,0 +1,231 @@
+/* --- Variables y Estilos Base --- */
+:root {
+  --bg-main: #f4f6f9;
+  --bg-sidebar: #1e2a38;
+  --text-dark: #333;
+  --text-light: #e0e0e0;
+  --primary: #007bff;
+  --success: #28a745;
+  --danger: #dc3545;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  display: flex;
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-sidebar);
+  color: var(--text-light);
+  min-height: 100vh;
+  padding: 1.5rem 0;
+  flex-shrink: 0; /* Evita que se encoja */
+  transition: width 0.3s;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sidebar-header i {
+  margin-right: 10px;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+}
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidebar-menu li a.active,
+.sidebar-menu li a:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+  border-left: 3px solid var(--primary);
+  padding-left: calc(1.5rem - 3px);
+}
+
+.sidebar-menu li a i {
+  width: 30px;
+}
+
+/* --- Contenido Principal --- */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-x: hidden; /* Evita desbordamiento horizontal */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se apilen si no caben */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+}
+
+.add-btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* --- Tabla de Productos --- */
+.table-container {
+  overflow-x: auto; /* Permite scroll horizontal en la tabla si es necesario */
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-table th,
+.product-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.product-table th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+}
+
+.product-table img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+.action-btn:hover {
+  transform: scale(1.2);
+}
+
+.edit {
+  color: var(--primary);
+}
+.delete {
+  color: var(--danger);
+}
+
+/* --- ✨ DISEÑO RESPONSIVO ✨ --- */
+
+/* Para Tablets (hasta 992px) */
+@media (max-width: 992px) {
+  body {
+    flex-direction: column; /* Apila la sidebar y el contenido */
+  }
+  .sidebar {
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+  }
+  .sidebar-menu {
+    display: flex;
+  }
+  .sidebar-menu li a {
+    padding: 1rem;
+  }
+  /* Ocultamos el texto y dejamos solo iconos en el menú */
+  .sidebar-menu li a span {
+    display: none;
+  }
+  .sidebar-menu li a.active,
+  .sidebar-menu li a:hover {
+    border-left: none;
+    border-bottom: 3px solid var(--primary);
+    padding-left: 1rem;
+  }
+}
+
+/* Para Móviles (hasta 768px) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Convertimos la tabla en tarjetas */
+  .product-table thead {
+    display: none; /* Ocultamos los encabezados */
+  }
+  .product-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+  }
+  .product-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.75rem 0;
+  }
+  .product-table td:last-child {
+    border-bottom: none;
+  }
+  /* Usamos el atributo 'data-label' para crear las etiquetas */
+  .product-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-align: left;
+    margin-right: 1rem;
+  }
+  .product-table td[data-label="Acciones"] {
+    justify-content: flex-end; /* Alinea botones a la derecha */
+  }
+}
